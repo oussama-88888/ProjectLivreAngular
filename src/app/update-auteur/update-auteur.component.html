@@ -1,0 +1,14 @@
+<form>
+    <div [hidden]="ajout">
+        <label>ID Auteur</label>
+        <input type="text" [readonly]="!ajout" [(ngModel)]="auteur.idAut" name="idAuteur" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom Auteur</label>
+        <input type="text" [(ngModel)]="auteur.nomAut" name="nomAuteur" class="form-control"
+            placeholder="Entrez un nom de auteur...">
+    </div>
+    <button type="submit" [disabled]="!auteur.nomAut" class="btn btn-success"
+(click)="saveAuteur()" >{{ajout ? 'Ajouter' : 'Modifier'}}
+</button>
+</form>

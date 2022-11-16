@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <app-update-auteur [auteur]="updatedAut"
+        [ajout]="ajout"  
+            (auteurUpdated)= "auteurUpdated($event)">
+            
+        </app-update-auteur>
+
+
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom Auteur</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let aut of auteurs">
+                    <tr>
+                        <td>{{aut.idAut}}</td>
+                        <td>{{aut.nomAut}}</td>
+                        <td><a class="btn btn-success" (click)="updateAut(aut)">Editer</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
