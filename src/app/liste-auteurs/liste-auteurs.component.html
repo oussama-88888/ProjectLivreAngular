@@ -1,6 +1,6 @@
 <div class="container">
 
-    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <div *ngIf="authService.isAdmin()" class="col-sm-4 col-md-4 col-lg-4 mb-4">
         <app-update-auteur [auteur]="updatedAut"
         [ajout]="ajout"  
             (auteurUpdated)= "auteurUpdated($event)">
@@ -23,7 +23,10 @@
                     <tr>
                         <td>{{aut.idAut}}</td>
                         <td>{{aut.nomAut}}</td>
-                        <td><a class="btn btn-success" (click)="updateAut(aut)">Editer</a></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" (click)="updateAut(aut)">Editer</a></td>
+                        <td><a  *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerAuteur(aut)">Supprimer</a>
+                        </td>
+                        
                     </tr>
                 </tbody>
             </table>

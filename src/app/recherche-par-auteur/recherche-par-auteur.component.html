@@ -26,10 +26,10 @@
                         <td>{{livre.nomLivre}}</td>
                         <td>{{livre.prixLivre}}</td>
                         <td>{{livre.dateCreation |date:'dd/MM/yyyy'}}</td>
-                         <td>{{livre.auteur?.nomAut}}   </td> 
-                        <!-- <td><a class="btn btn-danger" (click)="supprimerLivre(livre)">Supprimer</a>
-                  </td>
-                  <td><a  class="btn btn-success" [routerLink]="['/updateLivre',livre.idLivre]">Modifier</a></td> -->
+                         <td>{{livre?.auteur?.nomAut}}   </td> 
+                         <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerLivre(livre)">Supprimer</a>
+                         </td>
+                  <td><a *ngIf="authService.isAdmin()"  class="btn btn-success" [routerLink]="['/updateLivre',livre.idLivre]">Modifier</a></td> 
                     </tr>
                 </tbody>
             </table>

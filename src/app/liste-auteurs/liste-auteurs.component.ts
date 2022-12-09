@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auteur } from '../model/auteur.model';
+import { AuthService } from '../services/auth.service';
 import { LivreService } from '../services/livre.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { LivreService } from '../services/livre.service';
 })
 export class ListeAuteursComponent implements OnInit {
 
-  constructor(private livreService:LivreService) { }
+  constructor(private livreService:LivreService,
+    public authService: AuthService) { }
 auteurs!:Auteur[];
 ajout:boolean=true;
 
@@ -34,13 +36,22 @@ console.log(auts);
    this.livreService.ajouterAuteur(aut).subscribe( ()=> this.chargerAuteurs());
   }
   updateAut(aut :Auteur){
-    this.updatedAut=aut;
+    
   
       this.updatedAut=aut;
       this.ajout=false;
       
   }
+  supprimerAuteur(l: Auteur)
+  {
+  let conf = confirm("Etes-vous sûr de supprimer l'auteur ?");
+  if (conf)
+  this.livreService.supprimerAuteur(l.idAut).subscribe(() => {
+  console.log("auteur supprimé");
+  this.chargerAuteurs();
 
-    
+  });
+  } 
+
 
 }

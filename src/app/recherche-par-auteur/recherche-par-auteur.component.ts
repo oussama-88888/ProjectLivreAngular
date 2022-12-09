@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Auteur } from '../model/auteur.model';
 import { Livre } from '../model/livre.model';
+import { AuthService } from '../services/auth.service';
 import { LivreService } from '../services/livre.service';
 
 @Component({
@@ -16,7 +17,8 @@ IdAuteur!: number;
 auteurs!: Auteur[];
 
 livres!: Livre[];
-  constructor(private livreService:LivreService) { }
+  constructor(private livreService:LivreService,
+    public authService:AuthService) { }
 
   ngOnInit(): void {
     this.livreService.listeAuteurs().

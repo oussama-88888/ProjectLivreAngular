@@ -29,9 +29,9 @@ export class LivresComponent implements OnInit {
 
   }
   chargerLivres(){
-    this.livreService.listeLivre().subscribe(prods => {
-    console.log(prods);
-    this.livres = prods;
+    this.livreService.listeLivre().subscribe(livres => {
+    console.log(livres);
+    this.livres = livres;
     });
     }
     supprimerLivre(l: Livre)

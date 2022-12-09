@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Livre } from '../model/livre.model';
+import { AuthService } from '../services/auth.service';
 import { LivreService } from '../services/livre.service';
 @Component({
   selector: 'app-recherche-par-nom',
@@ -7,13 +8,17 @@ import { LivreService } from '../services/livre.service';
   styleUrls: []
 })
 export class RechercheParNomComponent implements OnInit {
+  supprimerLivre(_t26: any) {
+    throw new Error('Method not implemented.');
+    }
 nomLivre!: string ;
 livres!:Livre[];
 allLivres!:Livre[];
 searchTerm!:string;
 
 
-  constructor(private livreService:LivreService) { }
+  constructor(private livreService:LivreService,
+    public authService :AuthService) { }
 
   ngOnInit(): void {
 

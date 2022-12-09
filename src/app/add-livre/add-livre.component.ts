@@ -30,7 +30,7 @@ export class AddLivreComponent implements OnInit {
     this.livreService.ajouterLivre(this.newLivre)
     .subscribe(liv => {
       console.log(liv);
-    this.router.navigate(['livres']);
+    this.router.navigate(['/livres']);
     });
     }
 }
